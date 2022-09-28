@@ -7,3 +7,5 @@ Creating readme file, explains the function of each of these programs
 4-puts.c - uses puts function to write a string into the standard output
 5-printf.c - uses printf function included in the printf library to the standard output
 6-size.c - uses printf and sizeof to show the size of various types of data
+100-intel - uses the -masm option of the gcc command to show the result in intel syntax
+101-quote.c - returns a standard error message
