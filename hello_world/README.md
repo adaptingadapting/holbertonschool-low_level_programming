@@ -6,3 +6,4 @@ Creating readme file, explains the function of each of these programs
 3-name - uses the .o option to output into a specfic file, in this case "cisfun"
 4-puts.c - uses puts function to write a string into the standard output
 5-printf.c - uses printf function included in the printf library to the standard output
+6-size.c - uses printf and sizeof to show the size of various types of data
