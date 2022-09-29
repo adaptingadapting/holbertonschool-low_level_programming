@@ -11,15 +11,14 @@ int number;
 number = 97;
 while (number <= 122)
 {
-   putchar(number);
-  number++;
-  }
-
+if (number == 101 || number == 113)
+{
+number++;
+continue;
+}
+putchar(number);
+number++;
+}
 putchar(10);
 return (0);
 }
-if (number == 100 || 113)
-  {
-    number++;
-  } else {
-  
