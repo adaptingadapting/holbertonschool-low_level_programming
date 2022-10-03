@@ -5,7 +5,7 @@
 * Return: void
  */
 
-void print_alphabet(void)
+void print_alphabet_x10(void)
 {
 int letter = 97;
 int count = 0;
