@@ -24,11 +24,11 @@ void jack_bauer(void)
 		  if (a == 2 && (b > 3))
 		    {
 		    } else {
-		    _putchar(a);
-		    _putchar(b);
+		    _putchar(a + '0');
+		    _putchar(b + '0');
 		    _putchar(':');
-		    _putchar(c);
-		    _putchar(d);
+		    _putchar(c + '0');
+		    _putchar(d + '0');
 		    _putchar('\n');
 		  }
 		}
