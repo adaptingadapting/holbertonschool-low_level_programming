@@ -15,7 +15,7 @@ for (x = 0; x < 10; x++)
 {
 printf("\n");
 for (n = 0; n < 10; n++)
-  if (n < 9 && (x * n < 10))
+  if (n < 9 && (x * 2 * n < 10))
 {
 printf("%d,  ", x * n);
 }
