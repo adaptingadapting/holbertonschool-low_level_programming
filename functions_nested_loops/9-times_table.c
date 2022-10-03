@@ -17,7 +17,7 @@ printf("\n");
 for (n = 0; n < 10; n++)
 if (n < 9)
 {
-printf("%d, ", x * n);
+printf("%d,  ", x * n);
 }
 else
 printf("%d", x * n);
