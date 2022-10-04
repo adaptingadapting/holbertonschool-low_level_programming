@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * times_table - print the 9 times table starting on 0
  *
@@ -8,20 +7,38 @@
 
 void times_table(void)
 {
-int x = 0;
-int n = 0;
-
-for (x = 0; x < 10; x++)
+int i = 0;
+int j, mult, nxt;
+while (i < 10)
 {
-printf("\n");
-for (n = 0; n < 10; n++)
-  if (n < 9 && (x * n + 5 < 10))
+j = 0;
+while (j < 10)
 {
-printf("%d,  ", x * n);
+mult = i * j;
+nxt = i * (j + 1);
+if (mult >= 10)
+{
+_putchar(mult / 10 + '0');
+_putchar(mult % 10 + '0');
 }
-else if (n < 9)
-printf("%d, ", x * n);
 else
-printf("%d", x * n);
+{
+_putchar(mult + '0');
+}
+if (j == 9)
+{
+_putchar('\n');
+j++;
+continue;
+}
+_putchar(',');
+_putchar(' ');
+if (nxt < 10)
+{
+_putchar(' ');
+}
+j++;
+}
+i++;
 }
 }
