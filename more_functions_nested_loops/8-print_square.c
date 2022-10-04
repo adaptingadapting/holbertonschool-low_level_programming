@@ -20,11 +20,11 @@ else
 {
 for (y = 0; y < n; y++)
 {
-printf("\n");
 for (x = 0; x < n; x++)
 {
 printf("#");
 }
+printf("\n");
 }
 }
 }
