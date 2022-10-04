@@ -27,7 +27,6 @@ for (x = 0; x < n; x++)
 printf("\\");
 printf("\n");
 }     
-putchar(10);
 }
 }
 
