@@ -1,4 +1,9 @@
 #include <stdio.h>
+/**
+ * main - print the 9 times table starting on 0
+ *
+ * Return: 0 on success
+ */
 
 int main(void)
 {
