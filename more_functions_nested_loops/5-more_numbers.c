@@ -7,17 +7,15 @@
  */
 void more_numbers(void)
 {
-int letter = 0;
-int count = 0;
-while (count < 10)
+int i, j;
+for (j = 0; j < 10; j++)
 {
-while (letter <= 14)
+for (i = 0; i < 15; i++)
 {
-printf("%d", letter);
-letter++;
+if (i >= 10)
+_putchar(i / 10 + '0');
+_putchar(i % 10 + '0');
 }
-letter = 0;
-count++;
 _putchar('\n');
 }
 }
