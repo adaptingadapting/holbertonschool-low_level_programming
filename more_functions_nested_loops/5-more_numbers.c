@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 /**
  * more_numbers - prints alphabet 10 times
