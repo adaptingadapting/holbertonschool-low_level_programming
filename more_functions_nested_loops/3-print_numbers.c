@@ -10,9 +10,9 @@ void print_numbers(void)
 int number = 48;
 while (number <= 57)
 {
-printf("%d", number);
-number++;}
-
+_putchar(number);
+number++;
+}
 _putchar('\n');
 }
 
