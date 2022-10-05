@@ -6,18 +6,12 @@
  */
 void print_most_numbers(void)
 {
-int number = 48;
-while (number <= 57)
+int i;
+for (i = 0; i < 10; i++)
 {
-if (number == 59 || number == 61)
-{
+if (i == 2 || i == 4)
 continue;
-}
-else
-{
-_putchar(number);
-number++;
-}
+_putchar(i + '0');
 }
 _putchar('\n');
 }
