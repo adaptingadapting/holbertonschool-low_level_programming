@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * print_line - print the 9 times table starting on 0
- *
+ *@n: added n
  * Return: 0 on success
  */
 
