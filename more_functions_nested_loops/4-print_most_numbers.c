@@ -11,7 +11,6 @@ while (number <= 57)
 {
 if (number == 59 || number == 61)
 {
-number++;
 continue;
 }
 else
