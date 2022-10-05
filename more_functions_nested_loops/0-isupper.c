@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _isalpha - determines if input corresponds to alphabetic character
+ * _isupper - determines if input corresponds to alphabetic character
  *
  * @c: number to be evaluated
  *
