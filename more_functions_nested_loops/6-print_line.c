@@ -19,6 +19,5 @@ else
 {
 printf("_");
 }
- putchar(10);
-}   
-
+putchar(10);
+}
