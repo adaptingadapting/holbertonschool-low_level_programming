@@ -2,7 +2,7 @@
 /**
  * reset_to_98  - prints word
   *
-   * Return: 0
+   *@n:n takes in a value
     */
 void reset_to_98(int *n)
 {
