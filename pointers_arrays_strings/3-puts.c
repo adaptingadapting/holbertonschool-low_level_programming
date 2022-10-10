@@ -3,8 +3,7 @@
 #include <stdio.h>
 
 /**
- *_strlen - finds the lenght of the string
- *_puts - prints a characrter array to the standard output
+  *_puts - prints a characrter array to the standard output
  *@str: string accepted as parameter
 */
 
@@ -15,6 +14,11 @@ for (i = 0; i < _strlen(str); i++)
 putchar(str[i]);
 putchar(10);
 }
+/**
+*_strlen - finds the lenght of the string
+*@s: the string in question
+*Return: returns the lenght of the character
+*/
 int _strlen(char *s)
 {
 int i = 0;
