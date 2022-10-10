@@ -13,3 +13,11 @@ int i;
 for (i = 0; i < _strlen(str); i++)
 putchar(str[i]);
 }
+int _strlen(char *s)
+{
+int i = 0;
+
+while (*(s + i))
+i++;
+return (i);
+}
