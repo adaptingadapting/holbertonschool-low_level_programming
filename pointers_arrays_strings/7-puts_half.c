@@ -13,15 +13,15 @@ for (i = 0; i < _strlen(str); i++)
 {
 if ((_strlen(str) % 2) == 0)
 {
-if (i > _strlen(str) / 2)
+if (i >= _strlen(str) / 2)
 {
 putchar(str[i]);
+}
 }
 else
 {
 if (i > (_strlen(str) - 1) / 2)
 putchar(str[i]);
-}
 }
 }
 putchar(10);
