@@ -9,13 +9,15 @@
 void rev_string(char *s)
 {
 int i;
-
-for (i = 0; i <= _strlen(s); i++)
+char temp;
+for (i = 0; i <= _strlen(s) / 2; i++)
 {
-  s[i] = s[_strlen(s) - i]; 
+temp = s[i];
+s[i] = s[_strlen(s) - i - 1];
+s[_strlen(s) - i - 1] = temp;
+}
+}
 
-}
-}
 /**
  *_strlen - finds the lenght of a string
  *@s: the string in question
