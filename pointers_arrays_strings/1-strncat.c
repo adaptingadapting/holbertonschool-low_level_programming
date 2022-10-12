@@ -6,6 +6,7 @@
  *@dest: destination string to be changed n amount of times
  *@src: source string to change from
  *@n : amount of string to change from src to dest
+ *Return: returns destination string changed
  */
 
 char *_strncat(char *dest, char *src, int n)
@@ -24,9 +25,9 @@ return (dest);
 }
 
 /**
- *_strlen - returns the lenght of the string 
+ *_strlen - returns the lenght of the string
  *@s: string to be measured
- *Return: returns the lenght of s 
+ *Return: returns the lenght of s
  */
 
 int _strlen(char *s)
