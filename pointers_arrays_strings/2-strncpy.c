@@ -16,7 +16,7 @@ for (i = 0; i < _strlen(src) && i < n; i++)
 {
 dest[i] = src[i];
 }
-if (i < n)
+for (; i < n; i++)
 dest[i] = '\0';
 return (dest);
 }
