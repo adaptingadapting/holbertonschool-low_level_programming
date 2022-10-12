@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- *rev_string - function reverses input string
+ *reverse_array - function reverses input string
  *@a: input number array
  *@n: number of elements in the array
  */
