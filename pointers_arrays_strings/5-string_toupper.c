@@ -11,6 +11,11 @@ char *string_toupper(char *jero)
 {
 int i;
 for (i = 0; jero[i]; i++)
-jero[i] = jero[i] - 32;
+{
+    if (jero[i] >= 97 && i <= 122 )
+      jero[i] = jero[i] - 32;
+    else
+      jero[i] = jero[i];
+}
 return (jero);
 }
