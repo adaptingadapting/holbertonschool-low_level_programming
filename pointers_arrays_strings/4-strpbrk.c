@@ -26,5 +26,8 @@ break;
 if (result != 0)
 break;
 }
+if (result != 0)
 return (s + result);
+else
+return (NULL);
 }
