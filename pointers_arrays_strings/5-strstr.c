@@ -13,6 +13,7 @@ char *_strstr(char *haystack, char *needle)
 int i;
 int k = 0;
 int l = 0;
+
 for (i = 0; haystack[i]; i++)
 {
 if (haystack[i] == needle[0])
@@ -22,13 +23,15 @@ while (haystack[i + k] == needle[k])
 k++;
 l++;
 }
-if (l == _strlen(needle) + 1)
+
+
+if (l == _strlen(needle))
 break;
-if (l < 3)
-return (NULL);
 }
 }
+if (l == _strlen(needle))
 return (haystack + i);
+return (NULL);
 }
 
 /**
@@ -39,8 +42,7 @@ return (haystack + i);
 int _strlen(char *s)
 {
 int i;
-for (i = 0; s[i]; i++)
-{
-}
+while (*(s + i))
+i++;
 return (i);
 }
