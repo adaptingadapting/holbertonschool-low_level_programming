@@ -1,0 +1,1 @@
+This readme file supossedly explains the function of each file, but it doesnt, lets stop with the pretense that im going to really do it
