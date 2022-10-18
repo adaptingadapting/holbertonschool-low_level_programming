@@ -1,3 +1,6 @@
+#ifndef agustin
+#define agustin
+
 char *cap_string(char *);
 char *infinite_add(char *n1, char *n2, char *r, int size_r);
 char *leet(char *);
@@ -54,3 +57,5 @@ void rev_string(char *s);
 void set_string(char **s, char *to);
 void swap_int(int *a, int *b);
 void times_table(void);
+
+#endif
