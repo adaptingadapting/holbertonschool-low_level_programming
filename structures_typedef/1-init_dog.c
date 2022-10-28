@@ -10,8 +10,6 @@
 
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-  if (!(d))
-printf("Ok\n");
 struct dog;
 {
 d->name = name;
