@@ -1,5 +1,5 @@
-
-#define variadic_functions_h
+#ifndef hola
+#define hola
 
 #include <stdio.h>
 #include <stdlib.h>
