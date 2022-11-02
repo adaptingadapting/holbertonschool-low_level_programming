@@ -1,13 +1,12 @@
 #include "dog.h"
 #include <string.h>
-
+#include <stdlib.h>
 /**
- * new_dog - creates a new dog
- * @name: dog name
- * @age: dog age
- * @owner: owner name
- *
- * Return: pointer to new do
+ * new_dog - new dog
+ * @name: how to be a simp lord
+ * @age: how to be a simp lord
+ * @owner: how to be a simp lord
+ * Return: htbasl
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
