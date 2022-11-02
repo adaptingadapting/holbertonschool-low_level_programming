@@ -11,8 +11,8 @@
 
 void print_separator(const char * const format, int i)
 {
-  if (format != NULL && format[i + 1] != '\0')
-    printf(", ");
+if (format != NULL && format[i + 1] != '\0')
+printf(", ");
 }
 
 /**
@@ -22,9 +22,9 @@ void print_separator(const char * const format, int i)
 
 void print_all(const char * const format, ...)
 {
-  int i = 0;
-  char *aux;
-  va_list ap;
+int i = 0;
+char *aux;
+va_list ap;
 
 va_start(ap, format);
 while ((format) && (format[i]))
