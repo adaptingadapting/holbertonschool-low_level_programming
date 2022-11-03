@@ -2,6 +2,16 @@
 #include <stdarg.h>
 #include <stddef.h>
 
+void print(int n)
+{
+  if (n < 0) {
+    putchar('-');
+    n = -n;
+  }
+  if (n/10)
+    print(n/10);
+  putchar(n%10 + '0');
+}
 void _prontf(const char *format, va_list args)
 {
   int ctr = 0;
@@ -14,7 +24,6 @@ void _prontf(const char *format, va_list args)
 	  if (format[ctr] == '%')
 	    {
 	      foundPercent = 1;
-	      
 	    }
 	  else
 	    {
@@ -42,11 +51,17 @@ void _prontf(const char *format, va_list args)
 	      putchar('%');
 	      break;
 	    case 'd':
-	      int DecimalFormatReplacement = va_arg(args, int);
-	      
-	      break;
+	      {
+		int DecimalFormatReplacement = va_arg(args, int);
+		print(DecimalFormatReplacement); 
+		break;
+	      }
 	    case 'i':
-	      break;
+	      {
+		int IntegerFormatReplacement = va_arg(args, int);
+		print(IntegerFormatReplacement);
+		break;
+	      }
 	    default:
 	      break;
 	    }
@@ -67,6 +82,7 @@ void main()
   _printf("a character %c\n", 'n');
   _printf("a string %s\n", "hola");
   _printf("a percentage sign %%\n");
+  _printf("two percentage signs %%%%\n");
   _printf("an int %d\n", 24);
   _printf("another int %i\n", 25);
 }
