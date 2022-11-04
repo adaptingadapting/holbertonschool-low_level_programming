@@ -9,9 +9,18 @@ int _strlen(char *s);
 int print(long long int n);
 int _prontf(const char *format, va_list args);
 int _printf(const char *format, ...);
-void FromDeci(long int n, int base);
+void FromDeci(unsigned long int n, int base);
 void lowercaseDeciFunc(long int n, int base);
+int pointer_printer(char *s);
 ////////////////////////////////////////////////////////////////////////////////
+int pointer_printer(void *s)
+{
+  int i;
+  for (i = 0; s[i]; i++)
+    putchar(s[i]);
+  return (i);
+}
+/////////////////////////////////////////////////////////////////////////////////
 int _strlen(char *s)
 {
   int i;
@@ -56,7 +65,7 @@ int _printf(const char *format, ...)
   return (strlen - escapeSequences + VaArg_len);
 }
 //////////////////////////////////////////////////////////////////////////////////
-void FromDeci(long n, int base)
+void FromDeci(unsigned long n, int base)
 {
   long decimalnum, quotient, remainder;
   int i, j = 0;
@@ -104,6 +113,7 @@ int _prontf(const char *format, va_list args)
   int ctr = 0;
   int foundPercent = 0;
   int VaArg_len = 0;
+  int iterate = 0;
   while (format[ctr])
     {
       if (!(foundPercent))
@@ -125,10 +135,13 @@ int _prontf(const char *format, va_list args)
 	      {
 		char *StringFormatReplacement = va_arg(args, char *);
 		VaArg_len = _strlen(StringFormatReplacement);
-		while (*StringFormatReplacement)
-		  putchar(*StringFormatReplacement++);
+		while (StringFormatReplacement[iterate])
+		  {
+		    putchar(StringFormatReplacement[iterate]);
+		    iterate++;
+		  }
+		break;
 	      }
-	      break;
 	    case 'c':
 	      {
 		char CharFormatReplacement = va_arg(args, int);
@@ -170,8 +183,14 @@ int _prontf(const char *format, va_list args)
 	      }
 	    case 'o':
 	      {
-		long OctalFormatReplacement = va_arg(args, unsigned int);
+		unsigned int OctalFormatReplacement = va_arg(args, unsigned int);
 		FromDeci(OctalFormatReplacement, 8);
+		break;
+	      }
+	    case 'p':
+	      {
+		char *PointerFormatReplacement = va_arg(args, void *);
+		pointer_printer(PointerFormatReplacement);
 		break;
 	      }
 	    default:
