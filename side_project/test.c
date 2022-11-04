@@ -1,8 +1,10 @@
+#include <limits.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <stddef.h>
 
-void print(int n)
+void print(long long int n)
 {
   if (n < 0) {
     putchar('-');
@@ -16,7 +18,6 @@ void _prontf(const char *format, va_list args)
 {
   int ctr = 0;
   int foundPercent = 0; 
-  
   while (format[ctr])
     {
       if (!(foundPercent))
@@ -62,27 +63,65 @@ void _prontf(const char *format, va_list args)
 		print(IntegerFormatReplacement);
 		break;
 	      }
+	    case 'u':
+	      {
+		unsigned int UnsignedIntReplacement = va_arg(args, unsigned int);
+		print(UnsignedIntReplacement);
+		break;
+	      }
 	    default:
-	      break;
+	      {
+		putchar(format[ctr - 1]);
+		putchar(format[ctr]);
+		break;
+	      }
 	    }
 	  foundPercent = 0;
 	}
       ctr++;
     }
 }
-int _printf(const char *fmt, ...)
+int _printf(const char *format, ...)
 {
+  int strlen;
+  int escapeSequences = 0;
+  int escapeSeqArray[] = {'d', 'i', 'c', 's', '%', 'u'};
+  int arrayIterator;
   va_list args;
-  va_start(args, fmt);
-  _prontf(fmt, args);
+  va_start(args, format);
+  _prontf(format, args);
   va_end(args);
+  for (strlen = 0; format[strlen]; strlen++)
+    if (format[strlen] == '%')
+      {
+	for (arrayIterator = 0; escapeSeqArray[arrayIterator]; arrayIterator++)
+	  if (format[strlen + 1] == escapeSeqArray[arrayIterator])
+	    {
+	      strlen++;
+	      escapeSequences =+ 1;
+	    }
+      }
+  return (strlen - escapeSequences);
 }
-void main()
+int main()
 {
-  _printf("a character %c\n", 'n');
-  _printf("a string %s\n", "hola");
-  _printf("a percentage sign %%\n");
-  _printf("two percentage signs %%%%\n");
-  _printf("an int %d\n", 24);
-  _printf("another int %i\n", 25);
+  int len;
+  int len2;
+  unsigned int ui;
+  void *addr;
+  len = _printf("Let's try to printf a simple sentence.\n");
+  ui = (unsigned int)INT_MAX + 1024;
+  addr = (void *)0x7ffe637541f0;
+  _printf("Length:[%d, %i]\n", len, len);
+  _printf("Negative:[%d]\n", -762534);
+  _printf("Unsigned:[%u]\n", ui);
+  _printf("Unsigned octal:[%o]\n", ui);
+  _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+  _printf("Character:[%c]\n", 'H');
+  _printf("String:[%s]\n", "I am a string !");
+  _printf("Address:[%p]\n", addr);
+  len = _printf("Percent:[%%]\n");
+  _printf("Len:[%d]\n", len);
+  _printf("Unknown:[%r]\n");
+  return (0);
 }
