@@ -1,24 +1,33 @@
+#include <string.h>
 #include <limits.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <stddef.h>
 
-void print(long long int n)
+int _strlen(char *s)
+{
+  int i;
+  for (i = 0; s[i]; i++)
+    ;
+  return (i - 1);
+}
+int print(long long int n)
 {
   if (n < 0)
     {
-    putchar('-');
-    n = -n;
+      putchar('-');
+      n = -n;
     }
   if (n / 10)
     print(n / 10);
-  putchar(n % 10 + '0');
+  putchar(n % 10 + '0'); 
 }
-void _prontf(const char *format, va_list args)
+int _prontf(const char *format, va_list args)
 {
   int ctr = 0;
   int foundPercent = 0;
+  int VaArg_len = 0;
   while (format[ctr])
     {
       if (!(foundPercent))
@@ -39,6 +48,7 @@ void _prontf(const char *format, va_list args)
 	    case 's':
 	      {
 		char *StringFormatReplacement = va_arg(args, char *);
+		VaArg_len = _strlen(StringFormatReplacement);
 		while (*StringFormatReplacement)
 		  putchar(*StringFormatReplacement++);
 	      }
@@ -70,6 +80,11 @@ void _prontf(const char *format, va_list args)
 		print(UnsignedIntReplacement);
 		break;
 	      }
+	    case 'x':
+	      {
+		long long HexFormatReplacement = va_arg(args, long long int);
+		break;
+	      }
 	    default:
 	      {
 		putchar(format[ctr - 1]);
@@ -81,6 +96,7 @@ void _prontf(const char *format, va_list args)
 	}
       ctr++;
     }
+  return (VaArg_len);
 }
 int _printf(const char *format, ...)
 {
@@ -89,8 +105,9 @@ int _printf(const char *format, ...)
   int escapeSeqArray[] = {'d', 'i', 'c', 's', '%', 'u'};
   int arrayIterator;
   va_list args;
+  int VaArg_len = 0;
   va_start(args, format);
-  _prontf(format, args);
+  VaArg_len = _prontf(format, args);
   va_end(args);
   for (strlen = 0; format[strlen]; strlen++)
     if (format[strlen] == '%')
@@ -102,7 +119,7 @@ int _printf(const char *format, ...)
 	      escapeSequences += 1;
 	    }
       }
-  return (strlen - escapeSequences);
+  return (strlen - escapeSequences + VaArg_len);
 }
 int main(void)
 {
@@ -132,8 +149,8 @@ int main(void)
   printf("String:[%s]\n", "I am a string !");
   _printf("Address:[%p]\n", addr);
   printf("Address:[%p]\n", addr);
-  len = _printf("Percent:[%%]\n");
-  len2 = printf("Percent:[%%]\n");
+  len = _printf("Percent:[%s]\n", "hola");
+  len2 = printf("Percent:[%s]\n", "hola");
   _printf("Len:[%d]\n", len);
   printf("Len:[%d]\n", len2);
   _printf("Unknown:[%r]\n");
