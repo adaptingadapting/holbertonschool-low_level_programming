@@ -6,18 +6,13 @@
 #include <stdlib.h>
 
 int _strlen(char *s);
-int print(long long int n);
+int print(long int n);
 int _prontf(const char *format, va_list args);
 int _printf(const char *format, ...);
-void FromDeci(unsigned long int n, int base);
+int FromDeci(unsigned long n, int base);
 void lowercaseDeciFunc(long int n, int base);
-int pointer_printer(void *);
-////////////////////////////////////////////////////////////////////////////////
-int pointer_printer(void *)
-{
 
-}
-/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 int _strlen(char *s)
 {
   int i;
@@ -26,7 +21,7 @@ int _strlen(char *s)
   return (i - 1);
 }
 ////////////////////////////////////////////////////////////////////////////////
-int print(long long int n)
+int print(long int n)
 {
   if (n < 0)
     {
@@ -62,7 +57,7 @@ int _printf(const char *format, ...)
   return (strlen - escapeSequences + VaArg_len);
 }
 //////////////////////////////////////////////////////////////////////////////////
-void FromDeci(unsigned long n, int base)
+int FromDeci(unsigned long n, int base)
 {
   long decimalnum, quotient, remainder;
   int i, j = 0;
@@ -180,14 +175,16 @@ int _prontf(const char *format, va_list args)
 	      }
 	    case 'o':
 	      {
-		unsigned int OctalFormatReplacement = va_arg(args, unsigned int);
+		long long OctalFormatReplacement = va_arg(args, unsigned int);
 		FromDeci(OctalFormatReplacement, 8);
 		break;
 	      }
 	    case 'p':
 	      {
-		char *PointerFormatReplacement = va_arg(args, void *);
-		pointer_printer(PointerFormatReplacement);
+		void *PointerFormatReplacement = va_arg(args, void *);
+		putchar('0');
+		putchar('x');
+		lowercaseDeciFunc((unsigned long) PointerFormatReplacement, 16);
 		break;
 	      }
 	    default:
