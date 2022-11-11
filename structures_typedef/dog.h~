@@ -1,0 +1,9 @@
+#ifndef hola_h
+#define hola_h
+typedef struct dog
+{
+char *name;
+float age;
+char *owner;
+} dog;
+#endif
