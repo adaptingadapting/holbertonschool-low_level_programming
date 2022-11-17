@@ -9,7 +9,7 @@
 
 listint_t *get_nodeint_at_index(listint_t *h, unsigned int index)
 {
-	int i = 0;
+	unsigned int i = 0;
 
 	if (!h)
 		return (0);
@@ -17,9 +17,13 @@ listint_t *get_nodeint_at_index(listint_t *h, unsigned int index)
 	while (h && i < index)
 		{
 		if (!(h->n))
-			;/*	printf("%d", 0);*/
+		{
+			;
+		}
 		if (h->n)
-			;/*	printf("%d\n", h->n);*/
+		{
+			;
+		}
 		h = h->next;
 		i++;
 		}
