@@ -28,7 +28,7 @@ int hash_table_set(hash_table_t *table, const char *key, const char *value)
 			free(nvalue);
 		return (0);
 	}
-	keyIdx = key_index((char *)nkey, table->size);
+	keyIdx = key_index((unsigned char *)nkey, table->size);
 	node->key = nkey;
 	node->value = nvalue;
 	if (!table->array[keyIdx])
