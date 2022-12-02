@@ -33,8 +33,12 @@ loop:
 			free(user_input);
 			exit(0);
 		}
-		for (i = 1; token[i]; i++)
+		i = 0;
+		while (token[i])
+		  {
+			i++;
 			token[i] = strtok(NULL, delim);
+		  }
 		pid = fork();
 		if (pid == -1)
 			perror("failed to fork");
