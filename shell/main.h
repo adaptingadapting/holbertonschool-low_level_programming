@@ -10,7 +10,6 @@
 #include <sys/stat.h>
 
 char *programStat(char *line);
-void executePathProgram(char **token);
 void executeProgram(char *str, char **token);
 
 #endif
