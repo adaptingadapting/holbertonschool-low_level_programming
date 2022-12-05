@@ -12,18 +12,15 @@
 
 int main(void)
 {
-	int i;
+	int i = 0;
 	char delim[] = {" \n:\t"};
-	char *token[80];
-	char *userInput;
-	size_t buffsize;
+	char *token[80] = {0};
+	char *userInput = NULL;
+	size_t buffsize = 0;
 
 loop:
 	for (;;)
 	{
-		userInput = (char *)malloc(buffsize * sizeof(char));
-		if (!userInput)
-			exit(1);
 		printf("$ ");
 		if (getline(&userInput, &buffsize, stdin) == (-1))
 		{
@@ -48,7 +45,6 @@ loop:
 		if (programStat(token[0]))
 			token[0] = programStat(token[0]);
 		executePathProgram(token);
-		free(userInput);
 	}
 	return (0);
 }
