@@ -8,15 +8,19 @@
 
 char *programStat(char *line)
 {
-	char *token, *duptoken;
-	char *i = getenv("PATH"), *cp = strdup(i);
-	char *cp2 = strdup(line);
+	char *token;
+	char *i = getenv("PATH");
+	char *cp = malloc(strlen(i));
+	char *cp2 = malloc(strlen(line));
+	char *duptoken = malloc(strlen(line) + strlen(i) + 2);
 	struct stat st;
 
+	strcpy(cp, i);
+	strcpy(cp2, line);
 	token = strtok(cp, ":");
 	while (token)
 	{
-		duptoken = strdup(token);
+		strcpy(duptoken, token);
 		strcat(duptoken, "/");
 		strcat(duptoken, cp2);
 		if (stat(duptoken, &st) == 0)
