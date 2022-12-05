@@ -12,26 +12,25 @@
 
 int main(void)
 {
-	int i = 0;
+	int i;
 	char delim[] = {" \n:\t"};
 	char *token[80];
-	char *userInput = NULL;
+	char *userInput;
 	size_t buffsize;
-	char *statReturn;
-	size_t characters = 0;
-	pid_t parent = getpid();
-	pid_t pid;
-	int status;
-
-	userInput = (char *)malloc(buffsize * sizeof(char));
-	if (!userInput)
-		exit(1);
 
 loop:
 	for (;;)
 	{
+		userInput = (char *)malloc(buffsize * sizeof(char));
+		if (!userInput)
+			exit(1);
 		printf("$ ");
-		characters = getline(&userInput, &buffsize, stdin);
+		if (getline(&userInput, &buffsize, stdin) == (-1))
+		{
+			free(userInput);
+			printf("Terminated shell\n");
+				return (-1);
+		}
 		token[0] = strtok(userInput, delim);
 		if (!token[0])
 			goto loop;
@@ -47,12 +46,9 @@ loop:
 			token[i] = strtok(NULL, delim);
 		}
 		if (programStat(token[0]))
-		{
-			statReturn = programStat(token[0]);
-			printf("%s executed\n", statReturn);
-			token[0] = statReturn;
-		}
+			token[0] = programStat(token[0]);
 		executePathProgram(token);
-		}
+		free(userInput);
+	}
 	return (0);
 }
