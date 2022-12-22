@@ -3,7 +3,7 @@
 /**
  * op_add - adds a and b
  * @a: int
- * @n: int
+ * @b: int
  * Return: int
  */
 
@@ -25,8 +25,8 @@ int op_sub(int a, int b)
 }
 
 /**
- * op_mu1 - multiplies a and b
- * @a: int 
+ * op_mul - multiplies a and b
+ * @a: int
  * @b: int
  * Return: int
  */
