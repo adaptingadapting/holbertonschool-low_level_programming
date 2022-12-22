@@ -31,7 +31,7 @@ int op_sub(int a, int b)
  * Return: int
  */
 
-int op_mu1(int a, int b)
+int op_mul(int a, int b)
 {
 	return (a * b);
 }

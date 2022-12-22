@@ -13,7 +13,7 @@ int (*get_op_func(char *string))(int a, int b)
 op_t ops[] = {
 {"+", op_add},
 {"-", op_sub},
-{"*", op_mu1},
+{"*", op_mul},
 {"/", op_div},
 {"%", op_mod},
 {NULL, NULL}
