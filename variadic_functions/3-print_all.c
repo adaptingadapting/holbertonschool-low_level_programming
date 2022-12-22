@@ -10,17 +10,18 @@ void print_all(const char *const format, ...)
 	int i = 0;
 	va_list ap;
 	char *aux;
-	int separator = 0;;
+	int separator = 0;
 
 	va_start(ap, format);
-	while (format[i])
+	while (format && format[i])
 	{
-		print_sep(separator, format[i + 1]);
-		separator = 0;		
+		print_sep(separator, format[i]);
+		separator = 0;
 		switch (format[i])
 		{
 		case 'i':
-			separator = printf("%d", va_arg(ap, int));
+			printf("%d", va_arg(ap, int));
+			separator++;
 			break;
 		case 'c':
 			separator = printf("%c", va_arg(ap, int));
@@ -46,7 +47,7 @@ void print_all(const char *const format, ...)
 
 /**
  * print_sep - prints a speratror if needed
- * @string: format
+ * @c: format
  * @i: position of the format
  */
 
