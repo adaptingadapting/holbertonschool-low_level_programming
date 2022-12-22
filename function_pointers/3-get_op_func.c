@@ -18,10 +18,13 @@ op_t ops[] = {
 {"%", op_mod},
 {NULL, NULL}
 };
-	int i;
+	int i = 0;;
 
-	for (i = 0; ops[i].op; i++)
+	while (ops[i].op)
+	{
 		if (!strcmp(ops[i].op, string))
 		  return (ops[i].f);
+		i++;
+	}
 	return (NULL);
 }
