@@ -12,6 +12,8 @@ int set_bit(unsigned long int *n, unsigned int index)
 	unsigned int i = 0;
 	unsigned int aux = 1;
 
+	if (index >= 64)
+		return (-1);
 	for (; i < index; i++)
 	{
 		aux <<= 1;
