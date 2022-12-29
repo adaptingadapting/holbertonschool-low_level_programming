@@ -29,5 +29,5 @@ void print_binary(unsigned long int n)
 			putchar('0');
 	}
 	if (o > 1000000000000000000)
-		_putchar('1');
+		putchar('1');
 }
