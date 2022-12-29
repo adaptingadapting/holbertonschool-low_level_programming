@@ -9,7 +9,8 @@ void print_binary(unsigned long int n)
 {
 	unsigned long int i = 0;
 	int zeroes = 0;
-	
+	unsigned long int o = n;
+
 	if (!n)
 		putchar('0');
 	else
@@ -25,6 +26,8 @@ void print_binary(unsigned long int n)
 		for (; i > 0; i >>= 1)
 			putchar((i & 1) + '0');
 		for (; zeroes > 0; zeroes--)
-			putchar('0');		   
+			putchar('0');
 	}
+	if (o > 1000000000000000000)
+		_putchar('1');
 }
