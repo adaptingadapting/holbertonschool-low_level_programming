@@ -18,12 +18,14 @@ void hash_table_print(const hash_table_t *ht)
 	{
 		if (ht->array[i])
 		{
-			if (j)
-				printf(", ");
 			aux = ht->array[i];
 			for (; aux; aux = aux->next)
+			{
+				if (j == 1)
+				printf(", ");
 				printf("\'%s\': \'%s'", aux->key, aux->value);
-			j++;
+			}
+			j = 1;
 		}
 	}
 	printf("}\n");
