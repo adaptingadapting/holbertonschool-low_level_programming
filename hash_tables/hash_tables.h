@@ -31,6 +31,8 @@ unsigned long int size;
 hash_node_t **array;
 } hash_table_t;
 
+void free_list(hash_node_t *head);
+void hash_table_delete(hash_table_t *ht);
 void hash_table_print(const hash_table_t *ht);
 hash_table_t *hash_table_create(unsigned long int size);
 unsigned long int hash_djb2(const unsigned char *str);
