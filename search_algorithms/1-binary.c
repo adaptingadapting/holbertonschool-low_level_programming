@@ -12,7 +12,7 @@ int binary_search(int *array, size_t size, int value)
 {
 	size_t i;
 	size_t floor = 0;
-	size_t half;
+	size_t half = 0;
 
 	if (!array)
 		return (-1);
@@ -26,18 +26,14 @@ int binary_search(int *array, size_t size, int value)
 			if (i < size)
 				printf(", ");
 		}
-		printf("\n");	
+		printf("\n");
 		half = ((floor + size) / 2);
 		if (array[half] == value)
 			return (half);
 		else if (array[half] < value)
-		{
 			floor = half + 1;
-		}
 		else
-		{
 			size = half - 1;
-		}
 	}
 	return (-1);
 }
